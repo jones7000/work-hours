@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit{
   endTime: string = '';
   breakTime: string = '';
   differenceTime: string = '';
-  
+
   hoursSinceStartTime: number | null = null;
   hoursBetweenStartEnd: number | null = null;
 
@@ -24,9 +25,23 @@ export class AppComponent implements OnInit{
 
   private intervalId: any;
 
+  constructor(private route: ActivatedRoute) {}
+
   ngOnInit(): void {
     this.differenceTime = this.emptyHours;
     this.intervalId = setInterval(() => this.calculateDifference(), 5000);
+    this.route.queryParams.subscribe(params => {
+      this.breakTime = params['break'] ? params['break'] : '';
+      this.endTime = params['end'] ? params['end'] : '';
+      if (params['start']) {
+        this.startTime = params['start']
+        this.calculateDifference();
+      }
+      else {
+        this.startTime = '';
+      }
+
+    });
   }
 
   ngOnDestroy() {
