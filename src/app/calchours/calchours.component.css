@@ -1,0 +1,35 @@
+.heading {
+    text-align: center;
+  }
+
+  .result {
+    text-align: center;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;  /* Vertikale Ausrichtung */
+    margin-bottom: 10px;
+  }
+  
+  input {
+    flex: 1;  /* Füllt den verfügbaren Platz */
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  button {
+    margin-left: 10px;
+    background-color: #e57373; /* Rote Farbe */
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #ef5350; /* Dunklerer Rotton beim Hover */
+  }

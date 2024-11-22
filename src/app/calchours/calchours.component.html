@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="heading">
+      <h2>Work Hours</h2>
+      <p>KW: {{calendarWeek}}</p>
+    </div>
+    
+    <label for="startTime">Starttime:</label>
+    <div class="input-group">
+      <input type="time" id="startTime" [(ngModel)]="startTime" (change)="calculateDifference()" />
+      <button (click)="clearStartTime()">X</button>
+    </div>
+    
+    <label for="endTime">Endtime:</label>
+    <div class="input-group">
+      <input type="time" id="endTime" [(ngModel)]="endTime" (change)="calculateDifference()" />
+      <button (click)="clearEndTime()">X</button>
+    </div>
+  
+    <label for="breakTime">Break:</label>
+    <div class="input-group">
+      <input type="time" id="breakTime" [(ngModel)]="breakTime" (change)="calculateDifference()" />
+      <button (click)="clearBreakTime()">X</button>
+    </div>
+    
+    <div class="result">
+      <p>Hours</p>
+      <p>{{ differenceTime }}</p>
+    </div>
+  </div>
