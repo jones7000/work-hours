@@ -100,7 +100,9 @@ export class TimerComponent implements OnInit {
 
   // Sendet eine Benachrichtigung, wenn der Timer abgelaufen ist
   sendNotification() {
-    const formattedTime = this.datePipe.transform(this.timeInSeconds * 1000, 'mm:ss'); // Umwandlung in Millisekunden
-    alert(`Der Timer ist abgelaufen! (${formattedTime})`);
+    const hours = Math.floor(this.timeInSeconds / 3600);
+    const minutes = Math.floor((this.timeInSeconds % 3600) / 60);
+    const seconds = this.timeInSeconds % 60;
+    alert(`Der Timer ist abgelaufen! (${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(seconds)})`);
   }
 }

@@ -1,9 +1,6 @@
 <div class="container">
   <div class="heading">
     <h2>Timer</h2>
-  </div>  <div class="input-group">
-    <button (click)="startTimer()">Start</button>
-    <button (click)="stopTimer()">Stop</button>
   </div>
   <div class="input-group">
     <!-- Eingabefeld für die Startzeit (HH:mm), deaktiviert wenn der Timer läuft -->
@@ -14,7 +11,11 @@
       (change)="setTimer()"
       [disabled]="running"
     />
-    <button (click)="resetTimer()">Reset</button>
+    <button (click)="resetTimer()" [disabled]="running">Reset</button>
+  </div>
+  <div class="button-group">
+    <button (click)="startTimer()">Start</button>
+    <button (click)="stopTimer()">Stop</button>
   </div>
 
 </div>
